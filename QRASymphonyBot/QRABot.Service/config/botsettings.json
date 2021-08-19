@@ -1,0 +1,116 @@
+{
+    "EXCUSES": {
+        "LEVEL1": [
+            "Apologies",
+            "Ooops",
+            "Sorry",
+            "Darn it"
+        ],
+        "SYNTAX": [
+            "I didn't get that.",
+            "looks like wrong syntax",
+            "call \"!Q help\" to check my help file.",
+            "are you sure that's correct?"
+        ],
+        "NOUSER" :  ["COFFEE", "BEER", "FOOD", "TEA"],
+        "THANKS": [
+            "No problem.",
+            "You're welcome.",
+            "Glad I could help."
+        ],
+        "COFFEE": [
+            "No more coffee for you!"
+        ],
+        "BEER": [
+            "I could use one right now..."
+        ],
+        "FOOD": [
+            "I am starving..."
+        ],
+        "TEA": [
+            "Of course! Jolly good idea!"
+        ],
+        "UNKNOWN": [
+            "something went wrong.",
+            "unexpected crash!",
+            "my cores melted...",
+            "try again with different query.",
+            "this is wrong..."
+        ]
+    },
+    "ROBOTFUNCS": {
+        "HELP": "GetHelp",
+        "FILE": "ReadFile",
+        "STATUS": "IcingaStatus",
+        "SERVICE": "IcingaServiceDetails",
+        "WHERE": "GetHost",
+        "OK": "OkTheJob",
+        "RERUN": "Rerun",
+        "UNITRISK": "AddUnitRisk",
+        "JIRA": "GetJira",
+        "BATCHSTATUS": "IcingaBatchStatus",
+        "READY": "IcingaBatchReady",
+        //"UPDATE" : "NotImplementedFunc",
+        "BREAKFAST": "IcingaBatchReady",
+        "MORNING": "IcingaBatchReady",
+        "BED": "IcingaPMBatchReady",
+        "SLEEP": "IcingaPMBatchReady",
+        "SILENCE": "AddToBatchSilencingList",
+        "QW": "QuantWatch",
+        "WHO": "GetUserInfo",
+        "WHOAMI": "GetCurrentUserInfo",
+        "PING": "Ping",
+        "ONCALL": "VOPSOnCall",
+        "IPOLL": "IcignaPolling",
+        "TEST": "Test",
+        "ALERT": "VOPSAlert",
+        "HANDOVER": "VOPSHandover",
+        "THROWBLAME": "ThrowBlame"
+    },
+    "ROBOTHELP": { //use &amp; instead of & for HTML compatibility
+        "HELP": [ "", "get link to help file." ],
+        "FILE": [ "([<i>s=server</i>]#[<i>job</i>]#[<i>f=fullFilePath</i>]#[<i>d=fullDirectory</i>]#[<i>r=rows</i>]#[<i>c=clone</i>])", "get last <i>rows</i> (defaults to 10 last rows) from <i>f</i> (full path to file), if provided, else from <i>job</i> log (defaults to proclog, if <i>clone</i> not specified) on <i>server</i> (defaults to checking previous day QRA_Batch in icinga). Provide <i>d=directory</i> to list elements in that folder." ],
+        "STATUS": [ "([<i>h=host</i>]#<i>service</i>#[<i>e=environment</i>])", "get status of <i>service</i> from <i>host</i> (defaults to today's batch), on icinga <i>environment</i>." ],
+        "SERVICE": [ "([<i>h=host</i>]#<i>service</i>#<i>field</i>#[<i>e=environment</i>])", "get field from <i>service</i> from <i>host</i> (defaults to today's batch), on icinga <i>environment</i>." ],
+        "WHERE": [ "", "get server where QRABOT is hosted." ],
+        "OK": [ "([<i>a=anchorStr</i>]#<i>service</i>#<i>comment</i>#[<i>s=status</i>=0]#[<i>env=environment</i>])", "set status (default is 1-WARNING) of <i>service</i> from <i>host</i> (defaults to today's batch), on icinga <i>environment</i>, with <i>comment</i>." ],
+        "RERUN": [ "(<i>service</i>#[<i>arg1$val1&amp;arg2$val2</i>]#[<i>h=host</i>]#[<i>e=environment</i>])", "Rerun specific job based on icinga details. Provide <i>arg1$val1&amp;arg2$val2</i> to overwrite CMD arguments --arg1 and --arg2 with val1 and val2." ],
+        "UNITRISK": [ "(<i>pisins</i>#[<i>riskviews</i>])", "Provide a list of <i>pisins</i> (&amp; separated) to add them to the unitrisk files for default riskviews defined in UNITRISKCALC LingoNightRider (or provided via the second argument), for <i>anchor</i> (defaults to previous business day)." ],
+        "JIRA": [ "([<i>a=anchorStr</i>]#[<i>t=ticket</i>])", "Provide <i>anchorStr</i> (defaults to today) to get all active jira tickets for QRA Batch, or <i>ticket</i> to get details for a specific jira ticket." ],
+        "BATCHSTATUS": [ "([<i>h=host</i>]#[<i>s=status</i>=2]#[<i>e=environment</i>]#[<i>f=additional filter</i>]#[<i>fo=overwrite filter</i>])", "get a list of services with <i>status</i> from <i>host</i> (defaults to today's batch), on icinga <i>environment</i>. Filter format: <i>f=key1$value1&amp;key2$value2</i>, by default includes includeServiceNow=True. Use <i>fo=key1$value1...</i> to skip includeServiceNow$True." ],
+        "READY": [ "(<i>PMfilter</i>#[<i>h=host</i>]#[<i>e=environment</i>])", "Check if services on <i>host</i> (defaults to today's batch) monitored in serviceNow are all done. By default checks all the jobs, but provide AM/PM in <i>PMfilter</i> to limit the results." ],
+        //"UPDATE": ["([<i>h=host</i>]#<i>service</i>#<i>field</i>#<i>value</i>#[<i>e=environment</i>])", "Update <i>field</i> on <i>service</i> (on <i>host</i>, defaults to today's batch) with new <i>value</i>."],
+        "SILENCE": [ "([<i>a=anchorStr</i>]#<i>jobs' filter</i>#<i>errors' filter</i>)", "If no input provided, returns current silencing list. Otherwise, will add <i>errors</i> for <i>jobs</i> to batch silencing file (i.e. \"<i>\\\\danskenet.net\\markets\\Superfly\\SharedAPOC\\yyyyMMdd\\QRAbatchIgnoreList.json</i>\") for <i>a anchor</i> (defaults to today's batch)." ],
+        "QW": [ "", "Print what's on Rates QuantWatch right now." ],
+        "WHO": [ "(<i>b-number</i>)", "Get Symphony details for b-number, if user is on Symphony." ],
+        "PING": [ "", "Get Server, and ping from the Bot." ],
+        "ONCALL": [ "([<i>team(s)</i>])", "Get Victorops on-call for <i>team(s)</i> ('&amp;'-separated, defaults to a list of teams relevant for QRA)." ],
+        "IPOLL": [ "([<i>s=subscribe</i>]#<i>t=tag</i>]#[<i>f=additional filter</i>]#[<i>extraVar</i>]#[<i>start=HH:MM</i>]#[<i>stop=HH:MM</i>])", "Subsribe (s=1-default) or unsubscribe (s=0) for reports when Icinga services on host \"QRA_Intraday\" or current bath host \"QRA_Batch_YYYYMMDD\" (if <i>extraVar</i>==BATCH) turn CRITICAL. Will #tag (<i>t=tag</i>) the Symphony message, if provided. Use <i>f=key1$value1&amp;key2$value2</i> to narrow down the scope. Provide <i>start=HH:MM</i> to start getting alerts after HH:MM. Provide <i>stop=HH:MM</i> to stop getting alerts after HH:MM. If neither start or stop is provided, it's a 24/7 coverage. <i>ipoll(SAVE)</i> will save the current (global) filters to container: <i>IcingaPollingSubscriptionFilters/RT</i>." ],
+        "ALERT": [ "(<i>sender</i>#<i>recipient</i>#<i>subject</i>#<i>body</i>)", "Send <i>body</i> via victorOps alert from <i>sender</i> to <i>recipient</i> with <i>subject</i>. Requires proper VOPS user ids. Returns alert number." ],
+        "HANDOVER": [ "(<i>sender</i>#<i>recipient</i>#<i>team</i>)", "Hand over victorOps oncall for <i>team</i> from <i>sender</i> to <i>recipient</i>. Requires proper VOPS user ids and team name." ],
+        "THROWBLAME": [ "(<i>job name</i>#[<i>d=delay</i>]#[<i>a=anchorStr</i>])", "If <i>job</i> (for <i>a=anchorStr</i>, default current batch) is on ERROR, the bot will call ApocTools.py throwBlame, to throw the alert to the relevant VOPS team. If <i>d=delay</i> is provided, ApocTools.py throwBlame will wait d-minutes before throwing the alert, if the job is still on ERROR." ]
+    },
+    "ROBOTEXAMPLES": { //use &amp; instead of & for HTML compatibility
+        "HELP": "<b>help</b>     -----     to get full help<br/><b>help(SERVICE)</b>     -----     to get help on the SERVICE function",
+        "FILE": "<b>file(swapRisk)</b>     -----     to get last 10 rows of procLog for swapRisk<br/><b>file(d=\\\\plingo6\\LingoNightRider\\sfData)</b>     -----     to list all the files in that folder.<br/><b>file(s=plingo1#valuesTest#r=5)</b>     -----     to get 5 last rows from valuesTest proclog on plingo1)<br/><b>file(f=\\\\plingo4\\LingoNightRider\\GLS\\20200318_GLS.BRF.EQ.correlation-risk.SGA.log)</b>     -----     to read that speific file in full",
+        "STATUS": "<b>status(bondIndices)</b>     -----     Icinga status for today's batch for bondIndices<br/><b>status(srnRisk#h=QRA_Intraday)</b>     -----     current status of srnRisk on QRA_Intraday host.)<br/><b>status(GLS#h=QRA_Test#e=TEST)</b>     -----     current status in TEST Icinga environment for GLS on QRA_Test host.",
+        "SERVICE": "<b>service(bondIndices#server)</b>     -----     get server field from bondIndices from today's QRA_Batch host)<br/><b>service(h=QRA_Intrada#QicingaInject#errors)</b>     -----     get errors from QicingaInject on the QRA_Intraday host)<br/><b>service(bondIndices#command#e=TEST)</b>     -----     get command field from bondIndices service on today's QRA_Batch host, from TEST Icinga environment",
+        "WHERE": "<b>where</b>     -----     get server name of where QRABOT service is running",
+        "OK": "<b>ok(superRisk#my comment)</b>     -----     Set superRisk for current batch to state 1-WARNING, with comment \"my comment\"<br/><b>ok(superRisk#my comment#a=20200504#s=0)</b>     -----     Set superRisk for 20200504 to 0-OK with comment \"my comment\"",
+        "RERUN": "<b>rerun(swaprisk)</b>     -----     Use icinga details for swapRisk for the current batch, and rerun it on the relevant server.",
+        "UNITRISK": "<b>unitrisk(DE000C4QFCQ5&amp;DK0009923997)</b>     -----     Calculate default riskviews for two isins for last night anchor.<br/><b>unitrisk(DE000C4QFCQ5#fullrisk&amp;sek3m#a=20200901)</b>     -----     Calculate FULLRISK and SEK3M unitRisk for single isins, as of 20200901.",
+        "JIRA": "<b>jira(20200504)</b>     -----     find all jira tickets with summary matching QRA_Batch_20200504<br/><b>jira(t=STRATG-629)</b>     -----     get details of ticket STRATG-629",
+        "BATCHSTATUS": "<b>batchstatus()</b>     -----     return status of today's batch with number of jobs per status.<br/><b>batchstatus(h=QRA_Batch_20200504#s=2#f=server$PLINGO18)</b>     -----     Get a list of jobs with status 2-CRITICAL on host QRA_Batch_20200504, running on server PLINGO18, with includeServiceNow=True.<br/><b>batchstatus(a=20200506#s=1)</b>     -----     Get all jobs with status 1-WARNING, from QRA_Batch_20200506 host, where includeServiceNow is True",
+        "READY": "<b>ready(PM#h=QRA_Batch_20200506)</b>     -----     Check if all services with isPM=1 on host QRA_Batch_20200506 have finished.<br/><b>ready()</b>     -----     Check if all batch jobs monitored in serviceNow on the current anchor have finished.",
+        //"UPDATE": "<b>update(swapRisk#errors#some new error#h=QRA_Batch_20200506)</b>     -----     update errors field with new value 'some new error', on swapRisk on host QRA_Batch_20200506",
+        "SILENCE": "<b>silence(super*#4690123SE)</b>     -----     add 4690123SE to silencing for all super* jobs for tonight<br/><b>silence(xva*#LRS.CNH#a=RT)</b>     -----     silence LRS.CNH errors for all xva Intraday jobs.",
+        "QW": "<b>qw</b>     -----     get table with current issues on the QuantWatch.",
+        "WHO": "<b>who(B94628)</b>     -----     get B94628's details.",
+        "PING": "<b>ping</b>     -----     get current server where the Bot is running, and response time.",
+        "ONCALL": "<b>oncall</b>     -----     get table with current on-call personnel.<br/><b>oncall(INTO&amp;TTEC)</b>     -----     Get on-call personnel from team INTO and TTEC.<br/><b>oncall(teams)</b>     -----     Get list of all Victorops teams. Or 'QRA' to get a list of the QRA related names.",
+        "IPOLL": "<b>ipoll(t=BOSS#stop=15:30)</b>     -----    Subscribe to getting reports about critical services on host \"QRA_Intraday\", and get them tagged #BOSS. Stop the alerts from popping up after 15:30 every day.<br/><b>ipoll(f=server$PLINGO18&amp;deskFacing$-True)</b>     -----     Get updates only for services on host \"QRA_Intraday\", running on server PLINGO18, and where deskFacing is NOT True.<br/><b>ipoll(s=0)</b>     -----     Unsubscribe from any intraday Icinga udpates.",
+        "ALERT": "<b>alert(w.oj#w.oj#test issue#cannot get the data i need!)</b>     -----     Send alert from w.oj to w.oj with subject: test issue, and text: cannot get the data i need!.",
+        "HANDOVER": "<b>handover(w.oj#w.oj#kimil#Quant-Batch)</b>     -----     Give kimil current w.oj's oncall in the Quant-Batch team.",
+        "THROWBLAME": "<b>throwBlame(superRisk#d=10)</b>     -----     Wait 10 minutes, then throw superRisk alert for current batch.<br/><b>throwBlame(GLS#a=20200929#e=TEST)</b>     -----     Throw alert for GLS, if it's on ERROR in the TEST Icinga environment, on the QRA_Batch_20200929 host."
+    }
+}

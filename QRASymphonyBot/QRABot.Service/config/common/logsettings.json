@@ -1,0 +1,10 @@
+{
+    "LogToConsole": true,
+    "LogToFile": "QRABot/{env}/QRABot.log",
+    "ElkConfig": {
+        "Host": "sfinfra-elk-prod.danskenet.net:6379",
+        "Key": "logstash",
+        "IndexName": "{env}-log-qra-app",
+        "ServiceName": "symphonyBot"
+    }
+}

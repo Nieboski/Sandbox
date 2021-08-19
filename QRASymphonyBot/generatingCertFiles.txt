@@ -1,0 +1,20 @@
+# Use git bash
+
+# https://confluence.danskenet.net/display/TradingSupport/Symphony+Bot+certificate+configuration
+USERNAME="Qrabot"
+EMAIL="WOJ@danskebank.dk"
+SPI_SUBSPI_DSC="S2-AP-Superfly Application"
+P12PASSWORD="Superfly2009"
+
+# step by step
+openssl genrsa -out $USERNAME-privkey.pem 4096
+openssl req -new -key $USERNAME-privkey.pem -subj "/CN=$USERNAME/OU=$SPI_SUBSPI_DSC/O=Danske Bank A\/S/L=Copenhagen/C=DK/emailAddress=$EMAIL" -out $USERNAME-csr.pem
+
+# Submit contents of *-csr.pem to http://icert, save generated content to *-crt.pem. Certificate type is irrelevant in this case.
+# Get pubkey from signed cert:
+openssl x509 -pubkey -noout -in $USERNAME-crt.pem
+# upload it to symphony into bot's account. Ask Syphony support for help. I soke to Edgaras Dudenas.
+
+# Generate P12 file. Need admin to access random key generator. https://stackoverflow.com/questions/94445/using-openssl-what-does-unable-to-write-random-state-mean
+openssl pkcs12 -export -out $pwd\$USERNAME.p12 -aes256 -in $USERNAME-crt.pem -inkey $USERNAME-privkey.pem -passin pass:$P12PASSWORD -passout pass:$P12PASSWORD
+

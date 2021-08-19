@@ -1,0 +1,7 @@
+﻿{
+  "ApplicationName": "QRABot.Dev",
+  "Environment": "prod",
+  "urls": "http://[::]:5050"
+}
+
+

@@ -1,0 +1,7 @@
+﻿{
+  "ApplicationName": "QRABot.Syst.{name}",
+  "Environment": "syst",
+  "urls": "http://[::].danskenet.net:{port}"
+}
+
+

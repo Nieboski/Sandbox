@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deployment", "Deployment", "{3C3477CF-9313-410C-9D37-8DDD0969E57C}"
+	ProjectSection(SolutionItems) = preProject
+		DeploymentDescriptor.xml = DeploymentDescriptor.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".template.config", ".template.config", "{33336D37-78E0-4E82-90B0-7DCD7C4C9348}"
+	ProjectSection(SolutionItems) = preProject
+		.template.config\template.json = .template.config\template.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7C37E4E5-F73F-41E4-9DFF-F5153F2B630B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		TemplatePack.csproj = TemplatePack.csproj
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QRABot.UnitTests", "QRABot.UnitTests\QRABot.UnitTests.csproj", "{583B71C5-175C-4DB1-B326-03CD9F459ED2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QRABot.IntegrationTests", "QRABot.IntegrationTests\QRABot.IntegrationTests.csproj", "{492EBC82-F52F-4088-B2D4-2425B9C3D5F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QRABot.Service", "QRABot.Service\QRABot.Service.csproj", "{7A62534F-FD58-4249-B280-5AA6C2B2A9EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{583B71C5-175C-4DB1-B326-03CD9F459ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583B71C5-175C-4DB1-B326-03CD9F459ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583B71C5-175C-4DB1-B326-03CD9F459ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583B71C5-175C-4DB1-B326-03CD9F459ED2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{492EBC82-F52F-4088-B2D4-2425B9C3D5F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492EBC82-F52F-4088-B2D4-2425B9C3D5F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492EBC82-F52F-4088-B2D4-2425B9C3D5F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492EBC82-F52F-4088-B2D4-2425B9C3D5F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A62534F-FD58-4249-B280-5AA6C2B2A9EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A62534F-FD58-4249-B280-5AA6C2B2A9EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A62534F-FD58-4249-B280-5AA6C2B2A9EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A62534F-FD58-4249-B280-5AA6C2B2A9EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCC40E53-7C15-48EF-8665-9BF88E41FFDB}
+	EndGlobalSection
+EndGlobal

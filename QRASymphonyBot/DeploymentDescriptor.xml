@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<deployment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file://///sumbuild/Marvin/Tools/GoTools/descriptors/ServiceDeploymentDescriptor.superfly.xsd">
+  <syst serviceUser="C8373506" installUser="C016081" webUser="C8373506">
+    <!--<icinga hostgroup="kApplications" routingkey="SuperFly-SuperQuoter" username="SuperFly_SuperQuoter" dashboard="SuperQuoterTradeService" checkinterval="20">
+      <notification name="NotifyVictorOPS" template="notify-victorops-service"/>
+    </icinga>-->
+    <server name="Y82593">
+      <service name="QRABot.Syst" description="Example string" installAs="topshelf">
+        <instance name="a">
+          <configfile filename="config/hostsettings.syst.json" saveAs="config/hostsettings.json">
+            <replace key="{name}" value="a"/>
+            <replace key="{port}" value="5050"/>
+          </configfile>
+        </instance>
+        <instance name="b">
+          <configfile filename="config/hostsettings.syst.json" saveAs="config/hostsettings.json">
+            <replace key="{name}" value="b"/>
+            <replace key="{port}" value="5051"/>
+          </configfile>
+        </instance>    
+      </service>
+    </server>
+    <server name="Y82594">
+      <service name="QRABot.Syst" description="Example string" installAs="topshelf">
+        <instance name="a">
+          <configfile filename="config/hostsettings.syst.json" saveAs="config/hostsettings.json">
+            <replace key="{name}" value="a"/>
+            <replace key="{port}" value="5050"/>
+          </configfile>
+        </instance>
+        <instance name="b">
+          <configfile filename="config/hostsettings.syst.json" saveAs="config/hostsettings.json">
+            <replace key="{name}" value="b"/>
+            <replace key="{port}" value="5051"/>
+          </configfile>
+        </instance>
+      </service>
+    </server>
+  </syst>
+  <prod serviceUser="C8373506" installUser="C016081" webUser="C8373506">
+    <!--<icinga hostgroup="kApplications" routingkey="SuperFly-SuperQuoter" username="SuperFly_SuperQuoter" dashboard="SuperQuoterTradeService" checkinterval="5">
+      <notification name="NotifyVictorOPS" template="notify-victorops-service"/>
+    </icinga>-->
+    <server name="Y89033">
+      <service name="QRABot.Prod" description="Example string" installAs="topshelf">
+        <instance name="a">
+          <configfile filename="config/hostsettings.prod.json" saveAs="config/hostsettings.json">
+            <replace key="{name}" value="a"/>
+            <replace key="{port}" value="5040"/>
+          </configfile>
+        </instance>
+        <instance name="b">
+          <configfile filename="config/hostsettings.prod.json" saveAs="config/hostsettings.json">
+            <replace key="{name}" value="b"/>
+            <replace key="{port}" value="5041"/>
+          </configfile>
+        </instance>
+      </service>
+    </server>
+    <server name="Y89034">
+      <service name="QRABot.Prod" description="Example string" installAs="topshelf">
+        <instance name="a">
+          <configfile filename="config/hostsettings.prod.json" saveAs="config/hostsettings.json">
+            <replace key="{name}" value="a"/>
+            <replace key="{port}" value="5040"/>
+          </configfile>
+        </instance>
+        <instance name="b">
+          <configfile filename="config/hostsettings.prod.json" saveAs="config/hostsettings.json">
+            <replace key="{name}" value="b"/>
+            <replace key="{port}" value="5041"/>
+          </configfile>
+        </instance>
+      </service>
+    </server>
+  </prod>
+</deployment>

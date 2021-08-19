@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>QRABotService</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <ApplicationIcon>OneDrive.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ART.SymphonyClient" Version="0.2.1" />
+    <PackageReference Include="DanskeBank.IcingaApiClient" Version="1.0.1" />
+    <PackageReference Include="Microsoft.PowerShell.Commands.Diagnostics" Version="7.0.3" />
+    <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.0.3" />
+    <PackageReference Include="Microsoft.WSMan.Management" Version="7.0.3" />
+    <PackageReference Include="SuperFly.Framework.Extensions.Hosting" Version="0.0.31" />
+    <PackageReference Include="SuperFly.Framework.Hosting" Version="0.0.31" />
+    <PackageReference Include="SuperFly.SuperQuoter.Common" Version="0.0.37" />
+    <PackageReference Include="SuperFlySharp.Api" Version="1.8.2658" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3" />
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="config\appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="config\appsettings.prod.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="config\appsettings.syst.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="config\common\logsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="config\hostsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="config\hostsettings.prod.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="config\hostsettings.syst.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <ContentWithTargetPath Include="SymphonyIcingaBot\files\Qrabot-crt.pem">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Qrabot-crt.pem</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="SymphonyIcingaBot\files\Qrabot-csr.pem">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Qrabot-csr.pem</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="SymphonyIcingaBot\files\Qrabot-privkey.pem">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Qrabot-privkey.pem</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SuperFly.Framework.Hosting">
+      <HintPath>..\..\superfly.framework\SuperFly.Framework.Hosting\bin\Debug\netstandard2.0\SuperFly.Framework.Hosting.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
